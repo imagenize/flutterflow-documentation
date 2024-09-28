@@ -361,6 +361,19 @@ You can fix this by using the following expression inside the [Code Expression](
 ```
 responseData ?? ''
 ```
+You need to use this code expression before you set up this part of the code -
+```
+$['choices'][0]['delta']['content']
+``` 
+So basically you use the above json path as the argument for the var( you can name it anything) value of code expression and then write the expression 
+```
+var ?? ''
+```
+and also try to do the same for the page state variable, use the page state variable as an arg for the a different code expression so to avoid the 'null' that you see at the beginning of the streaming response as the first chunk of the stream data is always an empty string. see the below screenshots for reference 
+![Screenshot (369)](https://github.com/user-attachments/assets/b107e4cf-dcf8-4b15-8b71-bce8878937cb)
+![Screenshot (371)](https://github.com/user-attachments/assets/d7c24b56-66aa-40eb-ab17-bb17ba32dba2)
+![Screenshot (372)](https://github.com/user-attachments/assets/49999dcd-bc8b-48b3-b92b-219d0beef54b)
+
 This expression ensures that if `responseData` is `null`, it will return an empty string instead.
 </p>
 
